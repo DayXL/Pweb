@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Bebidas</title>
+        <style>
+            *{
+                font-family: system-ui;
+            }
+               
+            table{
+                border-collapse: collapse;
+                border: 1px solid #ededed;
+            }
+               
+            tbody tr {
+                height: 40px;
+                border-bottom: 1px solid #ededed;
+                background-color: #fbfbfb;
+                text-align: center;
+            }
+               
+            .title {
+                background-color: #e99a59;
+                height: 30px;
+                color: #fff;
+                font-size: 26px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+              
+            .column {
+                float: left;
+                width: 50%;
+                padding: 5px;
+            }
+              
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            @media screen and (max-width: 600px) {
+                .column {
+                  width: 100%;
+                }
+              }
+
+        </style>
+    </head>
+
+   <body>
+
+      <h1>Bebidas</h1>
+
+      <div class = "row">
+        <div class = "column">
+
+            <table border="1" width="500">
+                <thead>
+                    <tr class="title">
+                        <th width="10%">Bebida</th>
+                        <th width="10%">Preço</th>
+                    </tr>
+
+                </thead>
+            
+                <tbody>
+                    <tr>
+                        <td>Café</td>
+                        <td>$5</td>
+                    </tr>
+            
+                    <tr>
+                        <td>Suco</td>
+                        <td>$6</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        <div class = "column">
+
+            <table border="1" width="500">
+                <thead>
+                    <tr class="title">
+                        <th width="10%">Bebida</th>
+                        <th width="10%">Preço</th>
+                    </tr>
+
+                </thead>
+            
+                <tbody>
+                    <tr>
+                        <td>Café</td>
+                        <td>$5</td>
+                    </tr>
+            
+                    <tr>
+                        <td>Suco</td>
+                        <td>$6</td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
+        </div>
+
+   </body>     
+
+</html>
