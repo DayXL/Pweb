@@ -1,0 +1,104 @@
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+p.verso {
+    color: blue;
+}
+
+p.mote {
+    color: red;
+}
+
+.botao{
+    display: block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid #333;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+}
+  
+.botao span{
+    position: relative;
+    z-index: 2;
+}
+  
+.botao:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff003b;
+    transition: all .35s;
+}
+  
+.botao:hover{
+    color: #fff;
+}
+  
+.botao:hover:after{
+    width: 100%;
+}
+
+.poeta img {
+    border-radius: 50%;
+    width: 200px;
+
+}
+
+*{
+    font-family: system-ui;
+}
+   
+table{
+    border-collapse: collapse;
+    border: 1px solid #ededed;
+}
+   
+tbody tr {
+    height: 40px;
+    border-bottom: 1px solid #ededed;
+    background-color: #fbfbfb;
+    text-align: center;
+}
+   
+.title {
+    background-color: #e99a59;
+    height: 30px;
+    color: #fff;
+    font-size: 26px;
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+.column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+}
+  
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
