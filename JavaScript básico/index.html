@@ -15,13 +15,19 @@
    </body>   
 
    <script>
+        let cont = 0;
 
         function carregarDiv(){
+            cont = cont + 1;
 
             let div = document.getElementById("meu amor")
 
-            div.innerHTML = `<h1>Guinness</h1>`
-
+            if (cont == 1) {
+                div.innerHTML = `<h1>Guinness</h1>`
+            }
+            else {
+                div.innerHTML = ``
+            }
         }
 
         let botao = document.getElementById("botaoCarregar")
