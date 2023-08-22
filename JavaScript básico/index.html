@@ -3,14 +3,15 @@
 <html>   
 
    <head>
-      <meta charset="UTF-8">      
+      <meta charset="UTF-8">     
+      <link href="estilo.css" rel="stylesheet"> 
    </head>  
 
    <body>
 
-      <div id="meu amor"> Carregar cerveja</div>  
+      <div id="meuamor"> <h1> Carregar cerveja </h1> </div>  
 
-      <div><button id="botaoCarregar">Carregando cervejas...</button></div>            
+      <div>  <button class ="botao" id="botaoCarregar">Carregando cervejas...</button></div>            
         
    </body>   
 
@@ -20,14 +21,10 @@
         function carregarDiv(){
             cont = cont + 1;
 
-            let div = document.getElementById("meu amor")
+            let div = document.getElementById("meuamor")
+            div.style.opacity = cont % 2;            
+            div.innerHTML = div.style.opacity == 1? `<h1>Guinness</h1>` : '<h1></h1>';
 
-            if (cont == 1) {
-                div.innerHTML = `<h1>Guinness</h1>`
-            }
-            else {
-                div.innerHTML = ``
-            }
         }
 
         let botao = document.getElementById("botaoCarregar")
