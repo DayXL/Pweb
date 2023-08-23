@@ -44,4 +44,15 @@ body {
     width: 100%;
 }
 
+thead tr {
+    background-color: #e99a59;
+    color: #fff;
+    font-size: x-large;
+}
+
+tbody tr {
+    background-color: #fbfbfb;
+    color: #000;
+    text-align: center;
+}
 

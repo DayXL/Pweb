@@ -8,11 +8,14 @@
    </head>
 
    <body>
-        <table border="1" width="500" id="meu amor">
+        <table border="0" width="500" id="meu amor">
               
         </table>
 
-        <button id="botaoCarregar">Carregando cervejas...</button>      
+        <button id="botaoCarregar">Carregando cervejas...</button>
+        <br>
+        <button id="ordenar">Ordenar cervejas...</button>      
+      
    </body>   
 
    <script>
@@ -25,6 +28,21 @@
           
         }
 
+        function ordenarVetor() {
+            cervejas.sort(function (a, b) {
+                if (a > b) {
+                  return 1;
+                }
+                if (a < b) {
+                  return -1;
+                }
+                // a must be equal to b
+                return 0;
+            });
+            carregarDiv()
+        }
+
+        
         function carregarDiv(){
 
             let div = document.getElementById("meu amor")
@@ -35,10 +53,15 @@
 
         }
 
+
         
         let botao = document.getElementById("botaoCarregar")
 
-        botao.addEventListener("click", carregarDiv)                 
+        botao.addEventListener("click", carregarDiv)    
+        
+        let botaoOrdenar = document.getElementById("ordenar")
+
+        botaoOrdenar.addEventListener("click", ordenarVetor)  
 
    </script>
 
