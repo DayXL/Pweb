@@ -12,9 +12,11 @@
               
         </table>
 
-        <button id="botaoCarregar">Carregando cervejas...</button>
+        <button class= "botao" id="botaoCarregar">Carregando cervejas...</button>
         <br>
-        <button id="ordenar">Ordenar cervejas...</button>      
+        <button class= "botao" id="ordenar">Ordenar cervejas...</button>      
+        <br>
+        <button class= "botao" id="embaralhar">Embaralhar cervejas...</button> 
       
    </body>   
 
@@ -24,22 +26,18 @@
 
         function transformar(item){
 
-            return `<tr> <td>${item}</td> </tr>`
+          return `<tr> <td>${item}</td> </tr>`
           
         }
 
         function ordenarVetor() {
-            cervejas.sort(function (a, b) {
-                if (a > b) {
-                  return 1;
-                }
-                if (a < b) {
-                  return -1;
-                }
-                // a must be equal to b
-                return 0;
-            });
+            cervejas.sort();
             carregarDiv()
+        }
+
+        function embaralharVetor() {
+          cervejas.sort(()=> Math.random() - 0.5);
+          carregarDiv()
         }
 
         
@@ -52,9 +50,7 @@
             div.innerHTML = `<thead> <tr class="title"> <th width="10%">Cervejas</th></tr> </thead> <tbody> ${cervejasHtml.join("\n")} </tr> </tbody>` 
 
         }
-
-
-        
+   
         let botao = document.getElementById("botaoCarregar")
 
         botao.addEventListener("click", carregarDiv)    
@@ -62,6 +58,10 @@
         let botaoOrdenar = document.getElementById("ordenar")
 
         botaoOrdenar.addEventListener("click", ordenarVetor)  
+
+        let botaoEmbaralhar = document.getElementById("embaralhar")
+
+        botaoEmbaralhar.addEventListener("click", embaralharVetor)  
 
    </script>
 
