@@ -3,48 +3,56 @@
 <html>   
 
    <head>
-
-      <meta charset="UTF-8">      
-
+        <meta charset="UTF-8">      
    </head>
-
-   
 
    <body>
 
-      <div><button id="botaoCarregar">Carregando cervejas...</button></div>
+    <button class= "botao" id="botaoCarregar">Carregando cervejas...</button>
+    <br>
+    <button class= "botao" id="ordenar">Ordenar cervejas...</button>      
+    <br>
+    <button class= "botao" id="embaralhar">Embaralhar cervejas...</button> 
 
-      <div id="meu amor"></div>            
+    <div id="meu amor"></div>            
 
    </body>   
 
-   
-
    <script>
 
-      let cervejas = ["Guiness", "Desperados", "Becks"]
+        let cervejas = ["Guiness", "Desperados", "Becks"]  
 
-      
+        const carregarDiv = (cervs) => {
 
-      //function carregar(){      
+            const div = document.getElementById("meu amor")
 
-      const carregarDiv = (cervs) => {
+            const cervejasHtml = cervs.map( item => `<h1>${item}</h1>` ) 
 
-         const div = document.getElementById("meu amor")
+            div.innerHTML = `${cervejasHtml.join("\n")}`
 
-         const cervejasHtml = cervs.map( item => `<h1>${item}</h1>` ) 
+        }
 
-         div.innerHTML = `${cervejasHtml.join("\n")}`
+        const ordenarVetor = () => {
+            carregarDiv(cervejas.sort())
+        }
 
-      }
+        const embaralharVetor = () =>  {
+            carregarDiv(cervejas.sort(()=> Math.random() - 0.5))
+        }
 
-      
+        let botao = document.getElementById("botaoCarregar")
 
-      let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", () => {
+            carregarDiv(cervejas); 
+        });                
 
-      botao.addEventListener("click", () => {
-        carregarDiv(cervejas); 
-    });                
+        let botaoOrdenar = document.getElementById("ordenar")
+
+        botaoOrdenar.addEventListener("click", ordenarVetor)  
+
+        let botaoEmbaralhar = document.getElementById("embaralhar")
+
+        botaoEmbaralhar.addEventListener("click", embaralharVetor)  
 
    </script>
 
