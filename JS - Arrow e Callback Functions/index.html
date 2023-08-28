@@ -8,11 +8,11 @@
 
    <body>
 
-    <button class= "botao" id="botaoCarregar">Carregando cervejas...</button>
+    <a href="javascript:carregarDiv(cervejas)">Carregando cervejas...</a> 
     <br>
-    <button class= "botao" id="ordenar">Ordenar cervejas...</button>      
+    <a href="javascript:ordenarVetor()">Ordenar cervejas...</a> 
     <br>
-    <button class= "botao" id="embaralhar">Embaralhar cervejas...</button> 
+    <a href="javascript:embaralharVetor()">Embaralhar cervejas...</a> 
 
     <div id="meu amor"></div>            
 
@@ -45,14 +45,6 @@
         botao.addEventListener("click", () => {
             carregarDiv(cervejas); 
         });                
-
-        let botaoOrdenar = document.getElementById("ordenar")
-
-        botaoOrdenar.addEventListener("click", ordenarVetor)  
-
-        let botaoEmbaralhar = document.getElementById("embaralhar")
-
-        botaoEmbaralhar.addEventListener("click", embaralharVetor)  
 
    </script>
 
