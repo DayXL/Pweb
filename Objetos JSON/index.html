@@ -10,7 +10,7 @@
 <body>
 
     <table>
-        <thead>
+        <thead id = "colunas">
             <tr>
                 <th>Nome</th>
                 <th>Álcool</th>
@@ -45,9 +45,40 @@
             }
         ];
 
-        function carregarTabela (cs, id) {
-            const tbody = document.getElementById(id);
+        let cabecalho = [
+            {
+               coluna: "Nome"
+            },
+
+            {
+               coluna: "Álcool"
+            },
+
+            {
+               coluna: "Estilo"
+            },
+
+            {
+               coluna: "Amargor"
+            },
+        ];
+
+        function carregarTabela (cs, idLinha, idColuna, colunas) {
+            const tbody = document.getElementById(idLinha);
             tbody.innerHTML = "";
+
+            const thead = document.getElementById(idColuna);
+            thead.innerHTML = "";
+
+            const theadRow = document.createElement("tr");
+
+            colunas.forEach(coluna => {
+                  const th = document.createElement("th");
+                  th.textContent = coluna.coluna;
+                  theadRow.appendChild(th);
+            });
+
+            thead.appendChild(theadRow);
 
             cs.forEach(item => {
                 const row = document.createElement("tr");
@@ -63,7 +94,7 @@
 
         let botao = document.getElementById("botaoCarregar");
 
-        botao.addEventListener("click", () => carregarTabela(cervejas, "cervejasTbody"));
+        botao.addEventListener("click", () => carregarTabela(cervejas, "cervejasTbody", "colunas", cabecalho));
         
     </script>
 
