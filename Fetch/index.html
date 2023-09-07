@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">   
+</head>
+
+<body>
+
+    <table>
+        <thead id = "colunas">
+            <tr>
+                <th>Nome</th>
+                <th>Álcool</th>
+                <th>Estilo</th>
+                <th>Amargor</th>
+            </tr>
+        </thead>
+        <tbody id="cervejasTbody"></tbody>
+    </table>
+
+    <button class= "botao" id="botaoCarregar">Carregando cervejas...</button>
+
+    <script>
+        let cervejas = []
+        
+        let cabecalho = [
+            {
+               coluna: "Nome",
+               propriedade: "name"
+            },
+
+            {
+               coluna: "Álcool",
+               propriedade: "alcohol"
+            },
+
+            {
+               coluna: "Estilo",
+               propriedade: "style"
+            },
+
+            {
+               coluna: "Amargor",
+               propriedade: "ibu"
+            },
+        ];
+
+        async function carregarCervejas(){
+
+            try{
+   
+               let res = await fetch("https://random-data-api.com/api/v2/beers?size=3")
+   
+               cervejas = await res.json()
+   
+               carregarTabela(cervejas, "cervejasTbody", "colunas", cabecalho)
+   
+            }catch(err){
+   
+               document.getElementById("colunas").innerHTML = "Ops"
+   
+            }
+   
+         }
+
+        function carregarTabela (cs, idLinha, idColuna, colunas) {
+            const tbody = document.getElementById(idLinha);
+            tbody.innerHTML = "";
+
+            const thead = document.getElementById(idColuna);
+            thead.innerHTML = "";
+
+            const theadRow = document.createElement("tr");
+
+            colunas.forEach(coluna => {
+                  const th = document.createElement("th");
+                  th.textContent = coluna.coluna;
+                  theadRow.appendChild(th);
+            });
+
+            thead.appendChild(theadRow);
+
+            cs.forEach(item => {
+               const row = document.createElement("tr");
+               colunas.forEach(coluna => {
+                  const cell = document.createElement("td");
+                  cell.textContent = item[coluna.propriedade];
+                  row.appendChild(cell);
+               });
+               
+               tbody.appendChild(row);
+            });
+        };
+
+        let botao = document.getElementById("botaoCarregar");
+
+        botao.addEventListener("click", () => carregarCervejas());
+        
+    </script>
+
+</body>
+
+</html>
