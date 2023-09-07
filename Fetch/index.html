@@ -12,60 +12,53 @@
     <table>
         <thead id = "colunas">
             <tr>
-                <th>Nome</th>
-                <th>Álcool</th>
-                <th>Estilo</th>
-                <th>Amargor</th>
-                <th>Maltes</th>
-                <th>Marca</th>
             </tr>
         </thead>
         <tbody id="cervejasTbody"></tbody>
     </table>
 
-    <button class= "botao" id="botaoCarregar">Carregando cervejas...</button>
+    <button class= "botao" id="botaoCarregar">Carregar</button>
 
     <script>
         let cervejas = []
         
         let cabecalho = [
             {
-               coluna: "Nome",
-               propriedade: "name"
+                coluna: "Nome",
+                propriedade: "first_name"
             },
-
             {
-               coluna: "Álcool",
-               propriedade: "alcohol"
+                coluna: "Sobrenome",
+                propriedade: "last_name"
             },
-
             {
-               coluna: "Estilo",
-               propriedade: "style"
+                coluna: "Nome de Usuário",
+                propriedade: "username"
             },
-
             {
-               coluna: "Amargor",
-               propriedade: "ibu"
+                coluna: "E-mail",
+                propriedade: "email"
             },
-
             {
-                coluna: "Maltes",
-                propriedade: "malts"
+                coluna: "Gênero",
+                propriedade: "gender"
             },
-
             {
-                coluna: "Marca",
-                propriedade: "brand"
+                coluna: "Telefone",
+                propriedade: "phone_number"
             },
-
+            {
+                coluna: "Data de Nascimento",
+                propriedade: "date_of_birth" 
+            },
         ];
+
 
         async function carregarCervejas(){
 
             try{
    
-               let res = await fetch("https://random-data-api.com/api/v2/beers?size=3")
+               let res = await fetch("https://random-data-api.com/api/v2/users?size=3")
    
                cervejas = await res.json()
    
