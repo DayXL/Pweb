@@ -47,19 +47,23 @@
 
         let cabecalho = [
             {
-               coluna: "Nome"
+               coluna: "Nome",
+               propriedade: "name"
             },
 
             {
-               coluna: "Álcool"
+               coluna: "Álcool",
+               propriedade: "alcohol"
             },
 
             {
-               coluna: "Estilo"
+               coluna: "Estilo",
+               propriedade: "style"
             },
 
             {
-               coluna: "Amargor"
+               coluna: "Amargor",
+               propriedade: "ibu"
             },
         ];
 
@@ -81,14 +85,14 @@
             thead.appendChild(theadRow);
 
             cs.forEach(item => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${item.name}</td>
-                    <td>${item.alcohol}</td>
-                    <td>${item.style}</td>
-                    <td>${item.ibu}</td>
-                `;
-                tbody.appendChild(row);
+               const row = document.createElement("tr");
+               colunas.forEach(coluna => {
+                  const cell = document.createElement("td");
+                  cell.textContent = item[coluna.propriedade];
+                  row.appendChild(cell);
+               });
+               
+               tbody.appendChild(row);
             });
         };
 
