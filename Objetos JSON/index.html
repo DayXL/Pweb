@@ -45,8 +45,8 @@
             }
         ];
 
-        function carregarTabela (cs) {
-            const tbody = document.getElementById("cervejasTbody");
+        function carregarTabela (cs, id) {
+            const tbody = document.getElementById(id);
             tbody.innerHTML = "";
 
             cs.forEach(item => {
@@ -63,7 +63,7 @@
 
         let botao = document.getElementById("botaoCarregar");
 
-        botao.addEventListener("click", () => carregarTabela(cervejas));
+        botao.addEventListener("click", () => carregarTabela(cervejas, "cervejasTbody"));
         
     </script>
 
