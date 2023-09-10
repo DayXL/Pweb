@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ReactZero</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script>
+        ReactDOM.render(
+            React.createElement(
+                'table',
+                { id: 'my-table', border: '1', width: '500' },
+                React.createElement(
+                    'thead',
+                    null,
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement(
+                            'th',
+                            { width: '10%' },
+                            'Nome'
+                        ),
+
+                        React.createElement(
+                            'th',
+                            { width: '10%' },
+                            'Preço'
+                        )
+                    )
+                ),
+
+                React.createElement(
+                    'tbody',
+                    null,
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement(
+                            'td',
+                            { width: '10%' },
+                            'Café'
+                        ),
+
+                        React.createElement(
+                            'td',
+                            { width: '10%' },
+                            '$5'
+                        )
+                    ),
+
+                    React.createElement(
+                        'tr',
+                        null,
+                        React.createElement(
+                            'td',
+                            { width: '10%' },
+                            'Suco'
+                        ),
+
+                        React.createElement(
+                            'td',
+                            { width: '10%' },
+                            '$6'
+                        )
+                    )
+                )
+            ),
+            document.getElementById('app')
+        );
+    </script>
+</body>
+
+</html>
