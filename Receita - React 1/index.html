@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ReactZero</title>
+    <link rel="stylesheet" href="estilo.css">   
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+        ReactDOM.render(
+            <div id="app">
+
+                <table border="1" width="500">
+                    <thead>
+                        <tr class="title">
+                            <th width="10%">Bebida</th>
+                            <th width="10%">Preço</th>
+                        </tr>
+    
+                    </thead>
+                
+                    <tbody>
+                        <tr>
+                            <td>Café</td>
+                            <td>$5</td>
+                        </tr>
+                
+                        <tr>
+                            <td>Suco</td>
+                            <td>$6</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+       
+            </div>
+       
+            ,
+            
+            document.getElementById('app')
+        );
+    </script>
+</body>
+
+</html>
