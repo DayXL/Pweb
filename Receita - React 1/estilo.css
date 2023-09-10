@@ -1,8 +1,9 @@
-body {
+body, h1{
     align-items: center;
     display: flex;
     flex-direction: column;
 }
+
 
 thead tr {
     background-color: #e99a59;
