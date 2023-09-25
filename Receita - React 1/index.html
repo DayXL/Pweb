@@ -2,11 +2,12 @@
 <html>
 
 <head>
-    <title>ReactZero</title>
+    <title>ReactUm</title>
     <link rel="stylesheet" href="estilo.css">   
 </head>
 
 <body>
+    <div id="cab"></div>
     <div id="app"></div>
 
     <script src="libs/react.js"></script>
@@ -14,26 +15,35 @@
     <script src="libs/babel.js"></script>
 
     <script type="text/babel">
-        function TabelaBebidas() {
+
+        const cafes = [
+            { nome: "Café Expresso", tipo: "Forte", preco: "$2" },
+            { nome: "Café Latte", tipo: "Leitoso", preco: "$3" },
+            { nome: "Café Americano", tipo: "Suave", preco: "$2.5" }
+        ];
+
+        function TabelaBebidas(propiedade) {
+            const bebidas = propiedade.bebidas;
+
             return (
                 <table border="1" width="500">
                     <thead>
                         <tr class="title">
                             <th width="10%">Bebida</th>
+                            <th width="10%">Tipo</th>
                             <th width="10%">Preço</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Café</td>
-                            <td>$5</td>
-                        </tr>
-                        <tr>
-                            <td>Suco</td>
-                            <td>$6</td>
-                        </tr>
+                        { bebidas.map((bebida, index) => (
+                            <tr key={index}>
+                                <td>{bebida.nome}</td>
+                                <td>{bebida.tipo}</td>
+                                <td>{bebida.preco}</td>
+                            </tr>
+                        ))}
                     </tbody>
-                </table>
+                </table> 
             );
         }
 
@@ -43,18 +53,36 @@
             );
         }
 
-        ReactDOM.render(
-            <div id="app">
-                <Cabecalho />
-                <TabelaBebidas />
+        function mostrarTabela() {
+            mostrarCabecalho();
+            ReactDOM.render(
+                <TabelaBebidas bebidas={cafes} />,
+                app
+            );
+           
+        }
 
-            </div>
-       
-            ,
-            
-            document.getElementById('app')
-        );
+        function mostrarCabecalho() {
+
+            ReactDOM.render(
+                <Cabecalho />,
+                cab
+            );
+           
+        }
+
+        let botao = document.getElementById("botaoCarregar");
+
+        botao.addEventListener("click", () => mostrarTabela());
+
     </script>
+
+    <br>
+
+    <button id = "botaoCarregar" class = "botao" >Mostrar Tipos de Café</button>
+
+    
+
 </body>
 
 </html>
