@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ReactDois</title>
+    <link rel="stylesheet" href="estilo.css">   
+</head>
+
+<body>
+    <div id="cab"></div>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+
+        const cafes = [
+            { nome: "Café Expresso", tipo: "Forte", preco: "$2" },
+            { nome: "Café Latte", tipo: "Leitoso", preco: "$3" },
+            { nome: "Café Americano", tipo: "Suave", preco: "$2.5" }
+        ];
+
+        class TabelaBebidas extends React.Component{
+            render(){
+                const bebidas = this.props.bebidas;
+                return (
+                    <table border="1" width="500">
+                        <thead>
+                            <tr class="title">
+                                <th width="10%">Bebida</th>
+                                <th width="10%">Tipo</th>
+                                <th width="10%">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { bebidas.map((bebida, index) => (
+                                <tr key={index}>
+                                    <td>{bebida.nome}</td>
+                                    <td>{bebida.tipo}</td>
+                                    <td>{bebida.preco}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table> 
+                );
+            }
+        }
+
+        function Cabecalho() {
+            return (
+                <h1>Minha tabela de bebidas</h1>
+            );
+        }
+
+        function mostrarTabela() {
+            mostrarCabecalho();
+            ReactDOM.render(
+                <TabelaBebidas bebidas={cafes} />,
+                app
+            );
+           
+        }
+
+        function mostrarCabecalho() {
+
+            ReactDOM.render(
+                <Cabecalho />,
+                cab
+            );
+           
+        }
+
+        let botao = document.getElementById("botaoCarregar");
+
+        botao.addEventListener("click", () => mostrarTabela());
+
+    </script>
+
+    <br>
+
+    <button id = "botaoCarregar" class = "botao" >Mostrar Tipos de Café</button>
+
+    
+
+</body>
+
+</html>
