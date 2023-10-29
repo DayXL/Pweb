@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ReactDois</title>
+    <link rel="stylesheet" href="estilo.css">   
+</head>
+
+<body>
+    <div id="cab"></div>
+    <div id="app"></div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+
+        const cafes = [
+            { nome: "Café Expresso", tipo: "Forte", preco: "$2" },
+            { nome: "Café Latte", tipo: "Leitoso", preco: "$3" },
+            { nome: "Café Americano", tipo: "Suave", preco: "$2.5" }
+        ];
+
+        const colunas = [
+            { nome: "Bebida", tipo: "string" },
+            { nome: "Tipo", tipo: "string" },
+            { nome: "Preço", tipo: "string" }
+    
+        ];
+
+
+        class TabelaBebidas extends React.Component{
+            render(){
+                const titulo = this.props.titulo;
+                const bebidas = this.props.bebidas;
+                return (
+                    <div>
+                        <h1>{titulo}</h1>
+                        <table border="1" width="500">
+                            <thead>
+                                {
+                                    this.props.colunas.map((coluna, index) => (
+                                        <th key={index} width="10%">{coluna.nome}</th>
+                                    ))
+                                }
+                            </thead>
+
+                            <tbody>
+                                { this.props.bebidas.map((bebida, index) => (
+                                    <tr key={index}>
+                                        <td>{bebida.nome}</td>
+                                        <td>{bebida.tipo}</td>
+                                        <td>{bebida.preco}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                    </table> 
+                    </div>
+                );
+            }
+        }
+
+        class ImagensCafe extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/800px-A_small_cup_of_coffee.JPG" width="200" height="200"></img>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/800px-A_small_cup_of_coffee.JPG" width="200" height="200"></img>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/800px-A_small_cup_of_coffee.JPG" width="200" height="200"></img>
+                    </div>
+                );
+            }
+        }
+
+        function mostrarImg() {
+            ReactDOM.render(
+                <ImagensCafe/>,
+                app
+            );
+        }
+
+        function mostrarTabela() {
+            ReactDOM.render(
+                <TabelaBebidas bebidas = {cafes} titulo ={"Minha tabela de bebidas"} colunas = {colunas}/>,
+                app
+            );
+        }
+
+        let botao = document.getElementById("botaoCarregar"); 
+        
+        botao.addEventListener("click", () => mostrarTabela());
+
+        let botaoImg = document.getElementById("botaoImg");
+
+        botaoImg.addEventListener("click", () => mostrarImg());
+
+    </script>
+
+    <br>
+
+    <button id = "botaoCarregar" class = "botao" >Mostrar Tipos de Café</button>
+    <br>
+    <button id = "botaoImg" class = "botao" >Mostrar imagens de Café</button>
+
+
+    
+
+</body>
+
+</html>
