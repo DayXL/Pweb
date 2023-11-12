@@ -1,0 +1,35 @@
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.limits {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.movies-container {
+    background-color: #d0f0c0; 
+    padding: 20px;
+  }
+  
+.message-container {
+    background-color: #ffffff;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+.botao {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+  
