@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 import {useState} from 'react'
+import Link from 'next/link';
 import styles from '../style/movie3.module.css'
 
 export default function Movies3(){
@@ -62,7 +63,12 @@ export function TheMovies({data,show}){
             { data.Search.map( (m) => <div className={styles['message-container']}  > 
                 <p> {m.Title} </p> 
                 <p> {m.Year} </p>
-                <img src={m.Poster} alt={m.Title} style={{ width: '100px' }} /></div>  ) 
+                <Link href={`/onimovie/${m.imdbID}`} passHref>
+                  <img src={m.Poster} alt={m.Title} style={{ width: '100px' }} />
+                </Link>
+                </div> 
+
+                ) 
             }            
 
         </div>
